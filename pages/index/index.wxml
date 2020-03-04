@@ -1,0 +1,4 @@
+<!--pages/index/index.wxml-->
+<view class="content-view">
+  <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>
+</view>
