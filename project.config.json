@@ -27,7 +27,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.1",
 	"appid": "wx3f8948ae64ee1abc",
-	"projectname": "selfnclaimApp",
+	"projectname": "xcx-bbrapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
