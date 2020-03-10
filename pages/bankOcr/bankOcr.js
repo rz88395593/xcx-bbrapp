@@ -195,30 +195,30 @@ Page({
   },
   bindNextStep() {
     let that = this
-    if (that.data.bandCard == "") {
-      wx.showModal({
-        title: "提示",
-        content: "请输入银行名称",
-        showCancel: false,
-        success(res) {
-          if (res.confirm) { }
-        }
-      })
-      return
-    } else if (that.data.bankName == "") {
-      wx.showModal({
-        title: "提示",
-        content: "请输入银行卡号",
-        showCancel: false,
-        success(res) {
-          if (res.confirm) { }
-        }
-      })
-      return
-    } 
+    // if (that.data.bandCard == "") {
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "请输入银行名称",
+    //     showCancel: false,
+    //     success(res) {
+    //       if (res.confirm) { }
+    //     }
+    //   })
+    //   return
+    // } else if (that.data.bankName == "") {
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "请输入银行卡号",
+    //     showCancel: false,
+    //     success(res) {
+    //       if (res.confirm) { }
+    //     }
+    //   })
+    //   return
+    // } 
     let json = ""
     wx.navigateTo({
-      url: '/pages//' + '?jsonData=' + json,
+      url: '/pages/pdfPage/pdfPage' + '?jsonData=' + json,
     })
   }
 })

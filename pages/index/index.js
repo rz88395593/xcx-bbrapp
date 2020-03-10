@@ -53,15 +53,8 @@ Page({
 
   },
   /**
-   * 微信授权
-   */
-  getUserInfo: function () {
-    let that = this
-    that.wxLogin("")
-  },
-  /**
-     * 微信登录
-     */
+  * 微信登录
+  */
   wxLogin: function (type) {
     let that = this
     //检查登录态是否过期
@@ -84,17 +77,36 @@ Page({
       }
     })
   },
+
   /**
-  * 微信登录
-  */
+   * 微信授权
+   */
+  getUserInfo: function () {
+    let that = this
+    that.wxLogin("")
+  },
+  /**
+    * 微信登录
+    */
   getWXlogin: function (type) {
     let that = this
     wx.login({
       success(res) {
         if (res.code) {
           console.log('登录成功，' + res.code)
+          // wx.setStorageSync('jsCode', res.code)
           that.getWXUser()
-          
+          //oj_tp5CvNB2_c74B3E_bOM0IxNG8
+          //ogsue4s0pIOP6MnU6eWLTauRCzxI
+          // wx.setStorageSync('openID', 'oj_tp5CvNB2_c74B3E_bOM0IxNG8')
+          let openID = wx.getStorageSync('openID')
+          console.log("获取唯一识别码")
+          console.log(openID)
+          if (app.stringFormat(openID) !== "") {
+
+          } else {
+            // that.getWeiXinOpenId(res.code, type)
+          }
         } else {
           console.log('登录失败，' + res.errMsg)
         }
@@ -138,6 +150,7 @@ Page({
       }
     })
   },
+
   /**
    * 获取微信用户信息/微信授权
    */
@@ -180,6 +193,110 @@ Page({
       fail: (res) => {
         console.log("失败");
         console.log(res);
+      }
+    })
+  },
+
+  /**
+   * 获取唯一识别码
+   */
+  getWeiXinOpenId: function (js_code, type) {
+    let that = this
+    let url = app.globalData.baseUrl + ''
+    wx.showLoading({
+      icon: "loading",
+      // title: "加载中...",
+      mask: true
+    })
+    wx.request({
+      url: url,
+      method: "POST",
+      data: {
+        "data": js_code
+      },
+      success: function (res) {
+        wx.hideLoading()
+        console.log("获取唯一识别码成功：")
+        console.log(res)
+        let data = res.data
+        let code = ""
+        let result = "抱歉！服务器暂时没有响应，请稍后重试"
+        if (data !== undefined && data !== "") {
+          if (data.message === undefined && data.message === null) {
+
+          } else {
+            let info = data.result
+            if (info !== undefined && info !== null) {
+              code = data.code
+              console.log("获取唯一识别码为：")
+              console.log(info)
+              let openID = info.openid
+              if (app.stringFormat(openID) !== "") {
+                wx.setStorageSync('openID', openID)
+               
+              }
+            }
+          }
+        } else {
+          if (res.statusCode == 200) {
+
+          }
+        }
+        if (code === '200') {
+
+        } else {
+          wx.showModal({
+            title: "提示",
+            content: result,
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        }
+      },
+      fail: function (err) {
+        wx.hideLoading()
+        console.log("获取唯一识别码失败：")
+        console.log(err)
+        let errMsg = err.errMsg
+        if (errMsg !== undefined && errMsg !== null) {
+          console.log(errMsg)
+          if (errMsg === "request:fail timeout") {
+            errMsg = "抱歉！请求超时，请稍后重试"
+          } else { //if (errMsg === "request:fail ")
+            errMsg = "网络请求失败，请检查您的网络设置"
+          }
+          wx.showModal({
+            title: "提示",
+            content: errMsg,
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        } else {
+          wx.showModal({
+            title: "提示",
+            content: "网络请求失败，请检查您的网络设置",
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        }
       }
     })
   },

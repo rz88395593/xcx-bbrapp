@@ -1,0 +1,51 @@
+/* pages/uploadImage/uploadImage.wxss */
+@import "../elementary/elementary.wxss";
+
+.rootVIew {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.imageView {
+  padding-left: 20px;
+  float: left;
+  position: relative;
+}
+
+.imageItem {
+  width: 100%;
+  height: 100%;
+}
+
+.titleView {
+  margin-top: -10rpx;
+  font-size: 13px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleText {
+  display: inline-block;
+  text-align: center;
+}
+
+.marker {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  text-align: center;
+  border-radius: 10px;
+  line-height: 20px;
+  color: white;
+  font-size: 13px;
+}

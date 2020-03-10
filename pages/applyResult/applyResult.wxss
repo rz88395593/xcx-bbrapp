@@ -1,0 +1,11 @@
+/* pages/applyResult/applyResult.wxss */
+@import "../idcardOcr/idcardOcr.wxss";
+.text-bold{
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.text-grey{
+  color: #666666;
+  font-size: 28rpx;
+}

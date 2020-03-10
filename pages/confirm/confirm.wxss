@@ -1,0 +1,114 @@
+/* pages/confirm/confirm.wxss */
+
+.list_box {
+  margin: 20rpx;
+}
+
+.list_name_box {
+  background: #fff;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  padding: 0 25rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  /* margin-left: 10rpx;
+  margin-right: 10rpx; */
+}
+
+.list_name_box_image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+
+.other {
+  background: #fff;
+  height: auto;
+  min-height: 80rpx;
+  padding: 4rpx 20rpx;
+  align-items: center;
+  font-size: 28rpx;
+  /* color: #000;
+  margin-left: 10rpx;
+  margin-right: 10rpx; */
+}
+
+.other_title {
+  display: inline-block;
+  height: auto;
+  /* width: 30%; */
+  text-align: left;
+}
+
+.other_title_link {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.other_text {
+  display: inline-block;
+  height: auto;
+  /* width: 70%; */
+  text-align: right;
+}
+
+.icon_down {
+  width: 40rpx;
+  height: 40rpx;
+  transition: transform 0.3s;
+}
+
+.icon_down_rotate {
+  transform: rotate(180deg);
+}
+
+.list_item_name {
+  flex: 1;
+}
+
+.other_noDisplay {
+  display: flex;
+}
+
+.other_background {
+  background-color: lightgray;
+}
+
+.headView {
+  color: red;
+  display: inline-block;
+  height: auto;
+  width: 40rpx;
+  text-align: center;
+  margin: 10rpx;
+}
+
+.other_title_width {
+  width: 100%;
+}
+
+.confirmView {
+  margin: 20rpx;
+  position: relative;
+}
+
+.confirmImage {
+  left: 0;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.confirmText {
+  color: rgb(102, 102, 102);
+  font-size: 28rpx;
+  margin-left: 60rpx;
+  width: calc(100% - 60rpx);
+}
+
+.buttonStyle_noneTop {
+  margin-top: 0px;
+}

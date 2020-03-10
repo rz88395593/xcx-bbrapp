@@ -1,0 +1,57 @@
+/* pages/programme/programme.wxss */
+
+.content-view {
+  box-shadow: 0px 0rpx 10rpx #f5f5f5;
+  background: #f5f5f5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.red-star {
+  color: red;
+}
+
+.picker_value {
+  width: 100%;
+  align-items: center;
+  min-height: 80rpx;
+}
+
+.card-style {
+  margin-top: 30rpx;
+  height: 100%;
+  background-color: #fff;
+}
+
+.title-style {
+  min-height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.green-line {
+  background: green;
+  width: 5rpx;
+  height: 30rpx;
+}
+
+.buttonStyle {
+  border-radius: 10rpx;
+  margin-top: 0px;
+}
+
+.text-grey {
+  color: #666;
+}
+
+.bottomText {
+  min-height: 100rpx;
+  margin-left: 3%;
+  width: 94%;
+  display: flex;
+  align-items: center;
+  color: gray;
+}

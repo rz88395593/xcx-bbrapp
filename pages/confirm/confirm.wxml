@@ -1,0 +1,43 @@
+<!--pages/confirm/confirm.wxml-->
+<view class='list_box' wx:for='{{confirmArray}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+  <view class='list'>
+    <block wx:if='{{parentIndex != confirmArray.length - 1}}'>
+      <view class='list_name_box' catchtap='confirmTap' data-parentindex='{{parentIndex}}'>
+        <text class='list_item_name'>{{parentItem.listName}}</text>
+        <image src='../../image/up.png' class='icon_down {{parentItem.show&&"icon_down_rotate"}}'></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='list_name_box' data-parentindex='{{parentIndex}}'>
+        <text class='list_item_name'>{{parentItem.listName}}</text>
+      </view>
+    </block>
+    <view class='list_item_box' wx:if='{{parentItem.show && parentIndex != confirmArray.length - 2}}'>
+      <view class='list_item' wx:for='{{parentItem.item}}' wx:key='this' catchtap='' data-index='{{index}}' data-parentindex='{{parentIndex}}'>
+        <view class='other other_noDisplay'>
+          <text wx:if="{{item.head !== undefined && item.head !== null}}" class="headView">|</text>
+          <text class='{{item.head !== undefined && item.head !== null ? "other_title other_title_width" : "other_title"}}'>{{item.name}}</text>
+          <text class='other_text' selectable='true'>{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='list_item_box' wx:if='{{parentItem.show && parentIndex == confirmArray.length - 2}}'>
+      <view class='list_item' wx:for='{{parentItem.item}}' wx:key='this' catchtap='' data-index='{{index}}' data-parentindex='{{parentIndex}}'>
+        <view class='{{index == 0 ? "other other_noDisplay other_background" : "other other_noDisplay"}}'>
+          <text class="other_title_link">{{item.name}}</text>
+          <text class='other_title_link'>{{item.relation}}</text>
+          <text class="other_title_link">{{item.phone}}</text>
+          <text class='other_title_link'>{{item.knowing}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="confirmView">
+  <image src="/image/sungleSelect_n.png" bindtap="selectConfirmImage" class="pickerImage confirmImage" wx:if="{{!isSelect}}"></image>
+  <image src="/image/sungleSelect_s.png" bindtap="selectConfirmImage" class="pickerImage confirmImage" wx:else></image>
+  <view class="confirmText">本人已仔细核对以上信息确认无误，并已阅读且同意《投保人声明》、《个人信用贷款保证保险条款》</view>
+</view>
+<view class="buttonView">
+  <button class="buttonStyle buttonStyle_noneTop" bindtap="nextStep">确认并签名提交</button>
+</view>

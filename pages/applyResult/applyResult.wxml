@@ -1,0 +1,9 @@
+<!--pages/applyResult/applyResult.wxml-->
+<view class="content-view" style="align-items: center;">
+  <image style="width:160rpx;height:160rpx;margin-top:50rpx;margin-bottom:50rpx" src='/image/result_success.png'></image>
+
+  <text class="text-bold">{{promotMsg}}</text>
+  <text class="text-grey" style="margin-bottom:50rpx" >{{promotDetailMsg}}</text>
+</view>
+
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">进入贷款申请</button>

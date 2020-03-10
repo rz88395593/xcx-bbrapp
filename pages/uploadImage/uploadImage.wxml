@@ -1,0 +1,14 @@
+<!--pages/uploadImage/uploadImage.wxml-->
+<!--  -->
+<view class="rootVIew" style="height:{{rootHeight}}px">
+  <view class="" wx:for="{{imageArray}}" wx:key="this" class="imageView">
+  <view class="marker">{{item.number}}</view>
+    <image src="{{item.image}}" style="width:{{imageWidth}}px;height:{{imageWidth}}px" bindtap="upload" data-index="{{index}}"></image>
+    <view class="titleView">
+      <text class="titleText" style="width:{{imageWidth}}px">{{item.title}}</text>
+    </view>
+  </view>
+</view>
+<view class="buttonView">
+  <button class="buttonStyle" bindtap="nextStep">下一步</button>
+</view>

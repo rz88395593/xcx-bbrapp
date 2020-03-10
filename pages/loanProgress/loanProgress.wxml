@@ -32,3 +32,5 @@
   </view>
 </view>
  <button class="buttonStyle" loading="{{loading}}" bindtap="nextStep" hover-class="button-hover-other">工商录入</button>
+  <button class="buttonStyle" loading="{{loading}}" bindtap="nextStepToRecover" hover-class="button-hover-other">工商补录</button>
+  <button class="buttonStyle" loading="{{loading}}" bindtap="nextStepToLoan" hover-class="button-hover-other">贷款申请</button>

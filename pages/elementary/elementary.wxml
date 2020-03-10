@@ -1,0 +1,212 @@
+<!--pages/elementary/elementary.wxml-->
+<view class="content-view">
+  <!-- 身份信息 -->
+  <view class="card-style">
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width-new textAddBlack">
+          身份信息
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input picker-view">
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          姓名
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input picker-view">
+          <view class="pickerView picker noneDataText">
+            张三
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          手机号
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input picker-view">
+          <view class="pickerView picker noneDataText">
+            13112131415
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          身份证号
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input picker-view">
+          <view class="pickerView picker noneDataText">
+            411521199001176013
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class=" weui-cell weui-cell_input weui-cell-height noneEnable">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          户口所在地
+        </view>
+      </view>
+      <view class="weui-cell__bd weui-label">
+        <view class="picker_value weui-label">
+          <view class="picker_value">
+            <view class="pickerView picker noneDataText">
+              北京市海淀区海淀街道
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class=" weui-cell weui-cell_input weui-cell-height noneEnable">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          婚姻状况
+        </view>
+      </view>
+      <view class="weui-cell__bd weui-label">
+        <view class="picker_value weui-label">
+          <view class="picker_value">
+            <view class="pickerView picker noneDataText">
+              未婚
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          文化程度
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+          <view class="pickerView picker" indicator-class="pickerCustom">
+            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
+              {{productTypeArray[productTypeIndex].comname}}
+            </view>
+            <view class="noneSelect" wx:else>
+              请选择
+            </view>
+          </view>
+        </picker>
+      </view>
+      <image src="/image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+  <!-- 常驻地址 -->
+  <view class="card-style">
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width-new textAddBlack">
+          常驻地址
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input picker-view">
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          来此地时间
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+          <view class="pickerView picker" indicator-class="pickerCustom">
+            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
+              {{productTypeArray[productTypeIndex].comname}}
+            </view>
+            <view class="noneSelect" wx:else>
+              请选择
+            </view>
+          </view>
+        </picker>
+      </view>
+      <image src="/image/arrow_right.png" class="pickerImage"></image>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          房屋类型
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+          <view class="pickerView picker" indicator-class="pickerCustom">
+            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
+              {{productTypeArray[productTypeIndex].comname}}
+            </view>
+            <view class="noneSelect" wx:else>
+              请选择
+            </view>
+          </view>
+        </picker>
+      </view>
+      <image src="/image/arrow_right.png" class="pickerImage"></image>
+    </view>
+    <view class=" weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          邮编
+        </view>
+      </view>
+      <view class="weui-cell__bd weui-label">
+        <view class="picker_value weui-label">
+          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
+        </view>
+      </view>
+    </view>
+    <view class=" weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          现住地址
+        </view>
+      </view>
+      <view class="weui-cell__bd weui-label">
+        <view class="picker_value weui-label">
+          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label weui-label-width">
+          是否本地居民
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+          <view class="pickerView picker" indicator-class="pickerCustom">
+            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
+              {{productTypeArray[productTypeIndex].comname}}
+            </view>
+            <view class="noneSelect" wx:else>
+              请选择
+            </view>
+          </view>
+        </picker>
+      </view>
+      <image src="/image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+</view>
+<view class="buttonView">
+  <button class="buttonStyle" bindtap="nextStep">下一步</button>
+</view>

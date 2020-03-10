@@ -1,0 +1,5 @@
+<!--pages/pdfPage/pdfPage.wxml-->
+<text>pages/pdfPage/pdfPage.wxml</text>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">签名</button>
+<web-view wx:if="{{!ios}}" src="{{url}}"></web-view>
+

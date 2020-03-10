@@ -5,7 +5,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
@@ -51,7 +50,7 @@ page {
 
 .weui-cell-height {
   height: auto;
-  min-height: 100rpx;
+  min-height: 80rpx;
 }
 
 .weui-cell-height-auto {
@@ -67,12 +66,12 @@ page {
 }
 
 .buttonStyle {
-  margin-left: 5%;
-  width: 90%;
+  margin-left: 3%;
+  width: 94%;
   height: 88rpx;
   line-height: 88rpx;
   font-size: 30rpx;
-  background-color: rgb(92, 164, 93);
+  background-color: #fb5444;
   color: rgb(255, 255, 255);
   margin-top: 40rpx;
   margin-bottom: 40rpx;
@@ -95,12 +94,12 @@ page {
 }
 
 .picker-view {
-  min-height: 100rpx;
+  min-height: 80rpx;
   height: auto;
 }
 
 .pickerView {
-  min-height: 100rpx;
+  min-height: 80rpx;
   height: auto;
   display: flex;
   display: -webkit-flex;
@@ -111,18 +110,22 @@ page {
 }
 
 .picker {
-  /* float: left; */
   width: 100%;
 }
 
 .pickerImage {
   padding-right: 0px;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   position: absolute;
   right: 0px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.pickerImage-new {
+  left: 0px;
+  padding-left: 0px;
 }
 
 .pickerImage_width {
@@ -158,4 +161,8 @@ page {
 .noneDataText {
   color: lightgray;
   text-align: center;
+}
+
+.textAddBlack {
+  font-weight: bold;
 }

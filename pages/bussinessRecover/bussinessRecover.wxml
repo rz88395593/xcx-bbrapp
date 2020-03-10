@@ -48,7 +48,7 @@
     </view>
     <view class="weui-cell__bd">
       <view class="picker_value">
-        <input value="{{name}}" bindinput="saveInput" data-type="comzip" class="picker_value" placeholder="请输入单位邮编" confirm-type="next"></input>
+        <input value="{{name}}" bindinput="saveInput" data-type="comzip" class="picker_value" placeholder="请输入单位成立时间" confirm-type="next"></input>
       </view>
     </view>
   </view>

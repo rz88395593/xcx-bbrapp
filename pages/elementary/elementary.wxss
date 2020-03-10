@@ -1,0 +1,16 @@
+/* pages/elementary/elementary.wxss */
+@import "../programme/programme.wxss";
+
+.buttonStyle {
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+}
+
+.noneEnable {
+  background-color: #f5f5f5;
+}
+
+.noneDataText {
+  color: gray;
+  text-align: left;
+}

@@ -46,5 +46,17 @@ Page({
     wx.navigateTo({
       url: '/pages/bussinessAdd/bussinessAdd' + '?jsonData=' + json,
     })
-  }
+  },
+  nextStepToLoan:function(){
+    let json = ""
+    wx.navigateTo({
+      url: '/pages/programme/programme' + '?jsonData=' + json,
+    })
+  },
+  nextStepToRecover: function () {
+    let json = ""
+    wx.navigateTo({
+      url: '/pages/bussinessRecover/bussinessRecover' + '?jsonData=' + json,
+    })
+  },
 })
