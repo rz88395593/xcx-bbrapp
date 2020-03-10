@@ -1,0 +1,88 @@
+<!--pages/bussinessRecover/bussinessRecover.wxml-->
+<view class="content-view">
+  <view class="person-info-view">
+    <text class='item-text'> 身份证号</text>
+    <text class='item-text'> 手机号</text>
+  </view>
+
+  <view class="prompt-view">
+    请录入以下信息：
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        单位名称
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="picker_value">
+        <input value="{{name}}" bindinput="saveInput" data-type="comname" class="picker_value" placeholder="请输入单位名称" confirm-type="next"></input>
+      </view>
+    </view>
+  </view>
+   <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        单位类型
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker class="weui-input picker-view" bindchange="bindComTypePickerChange" value="{{comTypeIndex}}" range-key="{{'name'}}" range="{{comTypeArray}}">
+        <view class="pickerView picker" indicator-class="pickerCustom">
+          <view style="width:{{pickerWidth}}px">
+            {{comTypeArray[comTypeIndex].name}}
+          </view>
+        </view>
+      </picker>
+      <image src="../../image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        单位成立时间
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="picker_value">
+        <input value="{{name}}" bindinput="saveInput" data-type="comzip" class="picker_value" placeholder="请输入单位邮编" confirm-type="next"></input>
+      </view>
+    </view>
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        单位所在地区
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="region" bindchange="bindRegionChange" value="{{detailed}}" custom-item="{{customItem}}" name="detailed" style='display:inline-block;font-size:33rpx;width:71%;margin-left:36rpx;height:75rpx;letter-spacing:2rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}'>
+        <view class="pickerView picker" indicator-class="pickerCustom">
+          <view style="width:{{pickerWidth}}px">
+            {{detailed}}
+          </view>
+        </view>
+      </picker>
+      <image src="../../image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        单位详细地址
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="picker_value">
+        <input value="{{name}}" bindinput="saveInput" data-type="comcode" class="picker_value" placeholder="请输入单位详细地址" confirm-type="next"></input>
+      </view>
+    </view>
+  </view>
+
+</view>
+<button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>

@@ -1,0 +1,36 @@
+<!--pages/bindManager/bindManager.wxml-->
+<view class="content-view">
+
+  <view>
+
+    <scroll-view class="scroll-y" scroll-y style='height:{{scrollHeight}}px' enable-back-to-top='true' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' lower-threshold='150' bindscrolltolower='loadMoreData'>
+
+      <view wx:if="{{managerList.length == 0}}" class="empty-view">
+        <image class='empty-image' src='../../image/placeholder.png'></image>
+        <text class='empty-text'>暂无数据</text>
+      </view>
+      <view wx:for="{{managerList}}" class='view-content' wx:key wx:for-index='parentIndex'>
+        <view class='view-card' bindtap="nextStep">
+          <text class='item-text'> 展业岗姓名：{{item.name}}</text>
+          <text class='item-text'> 展业岗身份证：{{item.name}}</text>
+          <text class='item-text'> 展业岗所属机构：{{item.name}}</text>
+        </view>
+      </view>
+
+
+      <view class="loading-view">
+        <view class="loading-view" wx:if="{{hideBottom}}">
+          <button class="loading-button" loading="{{hideBottom}}"></button>
+        </view>
+      </view>
+
+      <view class="nomore-view" wx:if='{{showCountAll == managerList.length}}'>无更多数据</view>
+    </scroll-view>
+
+  </view>
+
+</view>
+<view bindtap="resetManager" class="round-click">
+   <text>重新录入</text >
+</view>
+<inputManagerModal isShow="{{inputIsShow}}" title='绑定展业岗' modalMsg_placeholder='请输入展业岗姓名' bindSuccess='onSuccess'></inputManagerModal>

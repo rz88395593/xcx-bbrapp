@@ -1,0 +1,73 @@
+<!--pages/marriageInfoPage/marriageInfoPage.wxml-->
+<view class="content-view">
+  <view class="prompt-view">
+    请录入以下信息
+  </view>
+  <view class="weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label weui-label-width">
+        婚姻状况
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker class="weui-input picker-view" bindchange="bindMarriageStatusPickerChange" value="{{marriageStatusIndex}}" range-key="{{'name'}}" range="{{marriageStatusArray}}">
+        <view class="pickerView picker" indicator-class="pickerCustom">
+          <view style="width:{{pickerWidth}}px">
+          {{marriageStatusArray[marriageStatusIndex].name}}
+          </view>
+        </view>
+      </picker>
+      <image src="../../image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        配偶姓名
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="picker_value">
+        <input value="{{name}}" bindinput="saveInput" data-type="spousename" class="picker_value" placeholder="请输入姓名" confirm-type="next"></input>
+      </view>
+    </view>
+  </view>
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        配偶身份证号
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <view class="picker_value">
+        <input value="{{name}}" bindinput="saveInput" data-type="spousecard" class="picker_value" placeholder="请输入姓名" confirm-type="next"></input>
+      </view>
+    </view>
+  </view>
+  <view class="prompt-view">
+    请录入投保人常驻地址
+  </view>
+
+  <view class=" weui-cell weui-cell_input weui-cell-height">
+    <view class="weui-cell__hd">
+      <view class="weui-label">
+        常驻地址
+        <text class='red-star'>*</text>
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="region" bindchange="bindRegionChange" value="{{detailed}}" custom-item="{{customItem}}" name="detailed" style='display:inline-block;font-size:33rpx;width:71%;margin-left:36rpx;height:75rpx;letter-spacing:2rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}'>
+        <view class="pickerView picker" indicator-class="pickerCustom">
+          <view style="width:{{pickerWidth}}px">
+           {{detailed}}
+          </view>
+        </view>
+      </picker>
+      <image src="../../image/arrow_right.png" class="pickerImage"></image>
+    </view>
+  </view>
+</view>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>

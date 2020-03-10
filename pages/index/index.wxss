@@ -1,29 +1,137 @@
-/* pages/index/index.wxss */
-page{
+.swiper {
   width: 100%;
-  height: 100%;
+  height: 330rpx;
 }
-.content-view {
-  box-shadow: 0px 0rpx 10rpx #f5f5f5;
-  background: #f5f5f5;
+
+.swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 2rpx;
+}
+
+.swiper .wx-swiper-dot {
+  width: 30rpx;
+  display: inline-flex;
+  height: 10rpx;
+  margin-left: 10rpx;
+  justify-content: space-between;
+  border-radius: 10rpx;
+}
+
+.swiper .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: #d2d2d2;
+  border-radius: 8rpx;
+}
+
+.swiper .wx-swiper-dot-active::before {
+  background: #fff;
+}
+
+.backWhite {
   width: 100%;
+  height: 310rpx;
+  position: absolute;
+  z-index: 999;
+}
+
+.rootView {
+  position: relative;
+  margin-left: 30rpx;
+  width: calc(100% - 58rpx);
+}
+
+.selfInfo {
+  width: 690rpx;
+  height: 130rpx;
+  background-color: white;
+  margin-top: 23rpx;
+  display: flex;
+  position: relative;
+  border-radius: 20rpx;
+}
+
+.sharkPeople {
+}
+
+.selfImage {
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  border-radius: 35rpx;
+}
+
+.textShark_text {
+  height: 70rpx;
+  top: 30rpx;
+  line-height: 70rpx;
+}
+
+.textShark {
+  font-size: 30rpx;
+  margin-left: 22rpx;
+  position: absolute;
+  top: 40rpx;
+}
+
+.selfInfo_button {
+  margin-top: 23rpx;
+  height: 130rpx;
+  background-color: white;
+  width: 100%;
+  line-height: 130rpx;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+}
+
+.main-grids {
+  overflow: hidden;
+}
+
+.main-grid {
   height: 100%;
+  position: relative;
+  float: left;
+  padding: 20rpx 10rpx;
+  width: 50%;
+  box-sizing: border-box; 
+  display: flex;
+  justify-content: center;
+}
+
+.main-card {
+  height: 260rpx;
+  width: 260rpx;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 10rpx;
+  background-color: #fff;
+  /* box-shadow: 0rpx 0rpx 8rpx 6rpx rgba(85, 85, 85, 0.10); *//* padding: 20rpx; */
+  margin: 8rpx;
+  position: relative;
 }
-button[type=default][plain] {
-  margin: 20rpx;
+
+.main-card-image {
+  padding-top: 20rpx;
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.round {
+  text-align: center;
+  position: absolute;
+  top: 10rpx;
+  right: 20rpx;
+  height: 30rpx;
+  width: 30rpx;
+  line-height: 30rpx;
+  border-radius: 15rpx;
+  background: red;
   color: white;
-  border: 1px solid #009b63;
-  background-color: #009b63;
-}
-
-.button-hover-other {
-}
-
-.buttonStyle {
-  background-color: #32a15f;
-  border-radius: 44rpx;
+  font-size: 18rpx;
 }

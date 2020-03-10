@@ -1,0 +1,18 @@
+<!--components/verMsgBlock/verMsgBlock.wxml-->
+<cover-view class='mask' wx:if='{{!hide}}'>
+  <cover-view class='modal'>
+    <cover-view class='title' wx:if='{{title}}'>{{title}}</cover-view>
+    <cover-view class='content'>{{content}}</cover-view>
+    <cover-view class='btns'>
+      <button class='cancel' bindtap='Cancel' wx:if='{{showCancel}}'>取消</button>
+      <button wx:if="{{open_type == 'contact'}}" class='success' bindcontact='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:elif="{{open_type == 'getUserInfo'}}" class='success' bindgetuserinfo='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:elif="{{open_type == 'getPhoneNumber'}}" class='success' getPhoneNumber='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:else class='success' bindtap='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+    </cover-view>
+  </cover-view>
+  </cover-view>
+
+
+
+<!-- 使用<iModal title='登录并授权' content='信息' bindSuccess='onSuccess'></iModal> -->

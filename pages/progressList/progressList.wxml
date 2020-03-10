@@ -1,0 +1,32 @@
+<!--pages/progressList/progressList.wxml-->
+<view class="content-view">
+
+  <view>
+
+    <scroll-view class="scroll-y" scroll-y style='height:{{scrollHeight}}px' enable-back-to-top='true' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' lower-threshold='150' bindscrolltolower='loadMoreData'>
+
+      <view wx:if="{{dataList.length == 0}}" class="empty-view">
+        <image class='empty-image' src='../../image/placeholder.png'></image>
+        <text class='empty-text'>暂无数据</text>
+      </view>
+      <view wx:for="{{dataList}}" class='view-content' wx:key wx:for-index='parentIndex'>
+        <view class='view-card' bindtap="nextStep">
+          <text class='item-text'> 身份证号：{{item.name}}</text>
+          <text class='item-text'> 申请时间：{{item.name}}</text>
+          <text class='item-text'> 当前状态：{{item.name}}</text>
+        </view>
+      </view>
+
+
+      <view class="loading-view">
+        <view class="loading-view" wx:if="{{hideBottom}}">
+          <button class="loading-button" loading="{{hideBottom}}"></button>
+        </view>
+      </view>
+
+      <view class="nomore-view" wx:if='{{showCountAll == managerList.length}}'>无更多数据</view>
+    </scroll-view>
+
+  </view>
+
+</view>

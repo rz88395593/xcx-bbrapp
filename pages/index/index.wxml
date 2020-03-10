@@ -1,4 +1,35 @@
-<!--pages/index/index.wxml-->
-<view class="content-view">
-  <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>
+<swiper indicator-dots="{{indicatorDots}}" interval="{{interval}}" duration="{{duration}}" easing-function="easeInOutCubic" autoplay circular class="swiper" bindchange="swiperChange" bindanimationfinish="changeGoodsSwip">
+  <block wx:for="{{background}}" wx:key="this">
+    <swiper-item bindtap="reportClick">
+      <image src="{{item.src}}" class="backWhite"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="rootView">
+  <button class="selfInfo_button" open-type="getUserInfo" lang="zh_CN" bindtap="getUserInfo" loading="{{loading}}" wx:if="{{userImage === '' && userName === ''}}">登录
+  </button>
+  <view class="selfInfo" wx:else>
+    <view class="sharkPeople">
+      <image src="{{userImage}}" class="selfImage"></image>
+      <text class="textShark textShark_text">{{userName}}</text>
+    </view>
+  </view>
 </view>
+<view class="page__bd">
+    <view class="main-grids">
+      <block wx:for="{{gridsArray}}" wx:key="this">
+
+        <view class="main-grid">
+          <navigator url='{{item.targetUrl}}' hover-class="navigator-hover" class="main-card">
+            <view class="view-image-background">
+                <image class="main-card-image" src='{{item.image}}' >
+                  <text class="round" wx-if="{{item.num>0}}">{{item.num}}</text>
+                </image>
+            </view>
+            <view class="weui-grid__label" style="color:#333;font-size:30rpx">{{item.title}}</view>
+          </navigator>
+        </view>
+
+      </block>
+    </view>
+  </view>

@@ -1,0 +1,5 @@
+<!--pages/faceIdentity/faceIdentity.wxml-->
+<view class="content-view" style="align-items: center;">
+<image style="width:320rpx;height:320rpx" src='/image/icon_examine_add_img.png'></image>
+</view>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>

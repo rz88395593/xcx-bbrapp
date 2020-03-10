@@ -1,11 +1,20 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/faceIdentity/faceIdentity",
+    "pages/bussinessRecover/bussinessRecover",
+    "pages/bussinessAdd/bussinessAdd",
+    "pages/loanProgress/loanProgress",
+    "pages/progressList/progressList",
+    "pages/bindManager/bindManager",
+    "pages/idcardOcr/idcardOcr",
+    "pages/bankOcr/bankOcr",
+    "pages/marriageInfoPage/marriageInfoPage"
   ],
   "window": {
     "backgroundColor": "#F6F6F6", 
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#32A15F",
+    "navigationBarBackgroundColor": "#F74C4C",
     "navigationBarTitleText": "普惠",
     "navigationBarTextStyle": "white"
   },

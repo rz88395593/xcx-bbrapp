@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "inputManagerModal": "/components/inputSingleInfo/inputSingleInfo"
+  }
+}

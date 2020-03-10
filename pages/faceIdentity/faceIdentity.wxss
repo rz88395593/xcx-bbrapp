@@ -1,0 +1,2 @@
+/* pages/faceIdentity/faceIdentity.wxss */
+@import "../idcardOcr/idcardOcr.wxss";

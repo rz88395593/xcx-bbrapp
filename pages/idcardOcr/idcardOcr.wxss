@@ -1,0 +1,67 @@
+/* pages/idcardOcr/idcardOcr.wxss */
+
+page{
+  background: #f5f5f5;
+}
+.content-view {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.row-block-view {
+  box-shadow: 0px 0rpx 10rpx #f5f5f5;
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.info-view {
+  align-items:center;
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.image-normal{
+  width: 60%;
+  height: 240rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+button[type=default][plain] {
+  margin: 20rpx;
+  color: white;
+  border: 1px solid #F74C4C;
+  background-color: #F74C4C;
+}
+
+.button-hover-other {
+}
+
+.buttonStyle {
+  background-color: #F74C4C;
+  border-radius: 44rpx;
+}
+.red-star {
+  color: red;
+}
+.weui-cell-height{
+  min-height: 80rpx
+}
+
+.prompt-view{
+  color: #666666;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}

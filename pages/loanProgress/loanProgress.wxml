@@ -1,0 +1,34 @@
+<!--pages/loanProgress/loanProgress.wxml-->
+<view class="content-view">
+
+  <view wx:for="{{progressData}}" wx:key wx:for-index='parentIndex'>
+    <view class="item-view">
+      <view class="status-content-view">
+        <view class="image-view" wx:if="{{item.node=='no'}}">
+          <view class="status-view status-colot-grey"></view>
+          <view class="round-img status-colot-grey"></view>
+        </view>
+        <view  class="image-view" wx:elif="{{item.node=='going'}}">
+          <view class="status-view status-colot-ye"></view>
+          <view class="round-img status-colot-ye"></view>
+        </view>
+        <view  class="image-view" wx:elif="{{item.node=='fail'}}">
+          <view class="status-view status-colot-red"></view>
+          <view class="round-img status-colot-red"></view>
+        </view>
+        <view  class="image-view" wx:elif="{{item.node=='pass'}}">
+          <view class="status-view status-colot-green"></view>
+          <view class="round-img status-colot-green"></view>
+        </view>
+      </view>
+      <view class="info-view">
+        <text class='item-text'> 通过/失败/进行中</text>
+        <text class='item-text'>  </text>
+        <text class='item-text'>  </text>
+        <text class='item-text'> 节点名</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="nextStep" hover-class="button-hover-other">工商录入</button>

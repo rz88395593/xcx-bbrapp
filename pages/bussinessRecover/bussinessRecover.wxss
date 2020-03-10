@@ -1,0 +1,2 @@
+/* pages/bussinessRecover/bussinessRecover.wxss */
+@import "../bussinessAdd/bussinessAdd.wxss";

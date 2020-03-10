@@ -1,0 +1,48 @@
+<!--pages/bankOcr/bankOcr.wxml-->
+<view class="content-view">
+
+  <view class="row-block-view">
+    <view wx:if="{{3<2}}" class="info-view">
+      <image class="image-normal" src="../../image/icon_idcard_front.png" bindtap="showImageType"></image>
+    </view>
+
+    <view class="info-view">
+      <view class="row-block-view">
+        <image style="margin-top:10px;margin-left:10px;width:64px;height:64px" src="../../image/icon_idcard_front.png"></image>
+
+        <view>
+          <view class=" weui-cell weui-cell_input weui-cell-height">
+            <view class="weui-cell__hd">
+              <view class="weui-label">
+                银行名称
+                <text class='red-star'>*</text>
+              </view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="picker_value">
+                <input value="{{name}}" bindinput="saveInput" data-type="name" class="picker_value" placeholder="请输入银行名称" confirm-type="next"></input>
+              </view>
+            </view>
+          </view>
+          <view class=" weui-cell weui-cell_input weui-cell-height">
+            <view class="weui-cell__hd">
+              <view class="weui-label">
+                卡号
+                <text class='red-star'>*</text>
+              </view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="picker_value">
+                <input value="{{name}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入银行卡号" confirm-type="next"></input>
+              </view>
+            </view>
+          </view>
+         
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+</view>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>
