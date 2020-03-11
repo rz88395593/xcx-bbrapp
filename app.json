@@ -19,7 +19,8 @@
     "pages/elementary/elementary",
     "pages/contacts/contacts",
     "pages/bankwater/bankwater",
-    "pages/upload/upload"
+    "pages/upload/upload",
+    "components/flowpath/flowpath"
   ],
   "window": {
     "backgroundColor": "#F6F6F6", 
@@ -39,5 +40,6 @@
       "desc": "您的位置信息将用于设备定位操作"
     }
   },
+ 
   "sitemapLocation": "sitemap.json"
 }

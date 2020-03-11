@@ -1,0 +1,8 @@
+<!--components/flowpath/flowpath.wxml-->
+<view class="content-view">
+  <view wx:for="{{titleDatas}}" wx:key="this" class="{{item.id <= selectIndex ? 'flow_path_name flow_path_name_select' : 'flow_path_name flow_path_name_noneselect'}}">
+    {{item.name}}
+    <view class="{{item.id <= selectIndex ? 'circular circular_select' : 'circular circular_noneselect'}}"></view>
+    <view class="{{item.id < selectIndex ? 'line line_select' : 'line'}}" wx:if="{{index != titleDatas.length - 1}}"></view>
+  </view>
+</view>

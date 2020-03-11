@@ -1,9 +1,14 @@
 /* pages/uploadImage/uploadImage.wxss */
 @import "../elementary/elementary.wxss";
 
+.content-view {
+  margin-top: 30rpx;
+  margin-bottom: 0px;
+}
+
 .rootVIew {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
   width: 100%;
   height: auto;
   background-color: white;
@@ -34,6 +39,7 @@
 .titleText {
   display: inline-block;
   text-align: center;
+  width: 100%;
 }
 
 .marker {

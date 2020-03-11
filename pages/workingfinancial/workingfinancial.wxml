@@ -1,685 +1,687 @@
 <!--pages/workingfinancial/workingfinancial.wxml-->
-<view class="content-view">
-  <!-- 工作单位与收入 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          工作单位与收入
+<flowpath selectIndex="3"></flowpath>
+<scroll-view scroll-y="true" style="height:{{viewHeight}}px">
+  <view class="content-view">
+    <!-- 工作单位与收入 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            工作单位与收入
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
         </view>
       </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
+      <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            工作单位
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+            <view class="pickerView picker noneDataText">
+              {{unit}}
+            </view>
+          </view>
         </view>
       </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          工作单位
+      <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            单位地址
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+            <view class="pickerView picker noneDataText">
+              {{unitAddress}}
+            </view>
+          </view>
         </view>
       </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-          <view class="pickerView picker noneDataText">
-            北京市
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            单位电话
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{unitPhoneNumber}}" bindinput="bindDataInput" data-type="unitPhoneNumber" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            职务级别
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{dutyLevelIndex}}" range-key="comname" range="{{dutyLevelArray}}" data-type="dutyLevel">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{dutyLevelArray[dutyLevelIndex].comname !=='' }}">
+                {{dutyLevelArray[dutyLevelIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            入职时间
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{entryDate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="entryDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{entryDate !== undefined && entryDate !== ''}}">
+                {{entryDate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            发薪时间
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{payTimeIndex}}" range-key="comname" range="{{payTimeArray}}" data-type="payTime">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{payTimeArray[payTimeIndex].comname !=='' }}">
+                {{payTimeArray[payTimeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            发薪方式
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{payTypeIndex}}" range-key="comname" range="{{payTypeArray}}" data-type="payType">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{payTypeArray[payTypeIndex].comname !=='' }}">
+                {{payTypeArray[payTypeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            近一年月均工资收入
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{selfMonthIncome}}" bindinput="bindDataInput" data-type="selfMonthIncome" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            家庭年收入
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{homeYearIncome}}" bindinput="bindDataInput" data-type="homeYearIncome" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            近一年月均非工资收入
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{monthIncome}}" bindinput="bindDataInput" data-type="monthIncome" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
           </view>
         </view>
       </view>
     </view>
-    <view class="weui-cell weui-cell_input weui-cell-height noneEnable">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          单位地址
+    <!-- 银行流水信息 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height" bindtap="gotoBankWater">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            银行流水信息
+          </view>
         </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-          <view class="pickerView picker noneDataText">
-            北京市海淀区海淀街道
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
           </view>
         </view>
       </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          单位电话
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          职务级别
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
+      <view class="bankView" wx:for="{{bankWaterArray}}" wx:key="this">
+        <image src="/image/deleteWater.png" class="pickerImage pickerImage-new"></image>
+        <view class="bankSelectView" bindtap="gotoBankWater">
+          <view class="weui-cell-flex weui-cell_input" wx:for="{{item.item}}" wx:key="this">
+            <view class="weui-cell__hd">
+              <view class="weui-label">
+                {{item.name}}
+              </view>
             </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          入职时间
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          发薪时间
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          发薪方式
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          近一年月均工资收入
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          家庭年收入
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          近一年月均非工资收入
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 银行流水信息 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height" bindtap="gotoBankWater">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          银行流水信息
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class="bankView" wx:for="{{bankWaterArray}}" wx:key="this">
-      <image src="/image/deleteWater.png" class="pickerImage pickerImage-new"></image>
-      <view class="bankSelectView" bindtap="gotoBankWater">
-        <view class="weui-cell-flex weui-cell_input" wx:for="{{item.item}}" wx:key="this">
-          <view class="weui-cell__hd">
-            <view class="weui-label">
-              {{item.name}}
-            </view>
-          </view>
-          <view class="weui-cell__bd">
-            <view class="weui-input">
-              <view class="picker noneDataText">
-                {{item.value}}
+            <view class="weui-cell__bd">
+              <view class="weui-input">
+                <view class="picker noneDataText">
+                  {{item.value}}
+                </view>
               </view>
             </view>
           </view>
         </view>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-  </view>
-  <!-- 公积金/社保证明 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          公积金/社保证明
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
       </view>
     </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          公积金缴费基数
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          公积金月缴存额
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          公积金缴存单位
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          社保缴费基数
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          社保缴存单位
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- 房产证明 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          房产证明
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          房屋地址
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          房产价格
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          建筑面积
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>m²</text>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          购房时间
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+    <!-- 公积金/社保证明 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            公积金/社保证明
           </view>
-        </picker>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
+        </view>
       </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            公积金缴费基数
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{compayBasic}}" bindinput="bindDataInput" data-type="compayBasic" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            公积金月缴存额
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{mouthDeposit}}" bindinput="bindDataInput" data-type="mouthDeposit" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            公积金缴存单位
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{compayUnit}}" bindinput="bindDataInput" data-type="compayUnit" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            社保缴费基数
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{socialPayBasic}}" bindinput="bindDataInput" data-type="socialPayBasic" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            社保缴存单位
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{socialPayUnit}}" bindinput="bindDataInput" data-type="socialPayUnit" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
     </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          房屋商业月供
+    <!-- 房产证明 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            房产证明
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
         </view>
       </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            房屋地址
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{address}}" bindinput="bindDataInput" data-type="address" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
         </view>
       </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            房产价格
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{rate}}" bindinput="bindDataInput" data-type="rate" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            建筑面积
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{acreage}}" bindinput="bindDataInput" data-type="acreage" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>m²</text>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            购房时间
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{paydate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="paydate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{paydate !== undefined && paydate !== ''}}">
+                {{paydate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            房屋商业月供
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{commonthly}}" bindinput="bindDataInput" data-type="commonthly" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            房屋公积金月供
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{publicmonthly}}" bindinput="bindDataInput" data-type="publicmonthly" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
 
+      </view>
     </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          房屋公积金月供
+    <!-- 车辆证明 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            车辆证明
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
         </view>
       </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            车辆保险起期
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{startDate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="startDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{startDate !== undefined && startDate !== ''}}">
+                {{startDate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            车险保额
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{coverage}}" bindinput="bindDataInput" data-type="coverage" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            车辆投保公司
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{companyIndex}}" range-key="comname" range="{{companyArray}}" data-type="company">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{companyArray[companyIndex].comname !=='' }}">
+                {{companyArray[companyIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+    </view>
+    <!-- 保单证明 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            保单证明
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
         </view>
       </view>
-
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            保险金额
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{payment}}" bindinput="bindDataInput" data-type="payment" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            保单种类
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{kindIndex}}" range-key="comname" range="{{kindArray}}" data-type="kind">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{kindArray[kindIndex].comname !=='' }}">
+                {{kindArray[kindIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            保单缴费方式
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{modeIndex}}" range-key="comname" range="{{modeArray}}" data-type="mode">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{modeArray[modeIndex].comname !=='' }}">
+                {{modeArray[modeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            保单生效起始时间
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{insuranceStartDate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="insuranceStartDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{insuranceStartDate !== undefined && insuranceStartDate !== ''}}">
+                {{insuranceStartDate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            保单缴费起始时间
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{insurancePayDate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="insurancePayDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{insurancePayDate !== undefined && insurancePayDate !== ''}}">
+                {{insurancePayDate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            保单年缴费额
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{paymentYear}}" bindinput="bindDataInput" data-type="paymentYear" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+    </view>
+    <!-- 信用卡证明 -->
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            信用卡证明
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            发卡银行
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{bankIndex}}" range-key="comname" range="{{bankArray}}" data-type="bank">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{bankArray[bankIndex].comname !=='' }}">
+                {{bankArray[bankIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            账单日
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{statementDateIndex}}" range-key="comname" range="{{payTimeArray}}" data-type="statementDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{payTimeArray[statementDateIndex].comname !=='' }}">
+                {{payTimeArray[statementDateIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            授信额度
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{lineCredit}}" bindinput="bindDataInput" data-type="lineCredit" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            发卡日期
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{buildDate}}" start="" end="nowDate" bindchange="bindPickerChange" data-type="buildDate">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{buildDate !== undefined && buildDate !== ''}}">
+                {{buildDate}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            近六个月月均使用额度
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{sixAveuse}}" bindinput="bindDataInput" data-type="sixAveuse" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            已使用额度
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{useLimit}}" bindinput="bindDataInput" data-type="useLimit" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
+      </view>
     </view>
   </view>
-  <!-- 车辆证明 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          车辆证明
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          车辆保险起期
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          车险保额
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          车辆投保公司
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-  </view>
-  <!-- 保单证明 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          保单证明
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          保险金额
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          保单种类
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          保单缴费方式
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          保单生效起始时间
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          保单缴费起始时间
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          保单年缴费额
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-  </view>
-  <!-- 信用卡证明 -->
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          信用卡证明
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          发卡银行
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          账单日
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          授信额度
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          发卡日期
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          近六个月月均使用额度
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          已使用额度
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-  </view>
-</view>
+</scroll-view>
 <view class="buttonView">
   <button class="buttonStyle" bindtap="nextStep">下一步</button>
 </view>

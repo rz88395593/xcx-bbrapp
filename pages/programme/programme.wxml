@@ -1,186 +1,189 @@
 <!--pages/programme/programme.wxml-->
-<view class="content-view">
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          产品类型
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+<flowpath selectIndex="1"></flowpath>
+<scroll-view scroll-y="true" style="height:{{viewHeight}}px">
+  <view class="content-view">
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            产品类型
           </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          贷款类型
         </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}" data-type="productType">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
+                {{productTypeArray[productTypeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
       </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            贷款类型
           </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          业务来源
         </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{loanNatureIndex}}" range-key="comname" range="{{loanNatureArray}}" data-type="loanNature">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{loanNatureArray[loanNatureIndex].comname !== ''}}">
+                {{loanNatureArray[loanNatureIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
       </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            业务来源
           </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          放款银行
         </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{businessNatureIndex}}" range-key="comname" range="{{businessNatureArray}}" data-type="businessNature">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{businessNatureArray[businessNatureIndex].comname !== ''}}">
+                {{businessNatureArray[businessNatureIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
       </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            放款银行
           </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          贷款金额
         </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-      <text>元</text>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          贷款期数
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{loanBankIndex}}" range-key="comname" range="{{loanBankArray}}" data-type="loanBank">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{loanBankArray[loanBankIndex].comname !== ''}}">
+                {{loanBankArray[loanBankIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
             </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            贷款金额
           </view>
-        </picker>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{uploadCard}}" bindinput="bindDataInput" data-type="loanAmount" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput"></input>
+          </view>
+        </view>
+        <text>元</text>
       </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            贷款期数
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{applyPeriodIndex}}" range-key="comname" range="{{applyPeriodArray}}" data-type="applyPeriod">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{applyPeriodArray[applyPeriodIndex].comname !== ''}}">
+                {{applyPeriodArray[applyPeriodIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+    </view>
+    <view class="card-style">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            还款方式
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{payTypeIndex}}" range-key="comname" range="{{payTypeArray}}" data-type="payType">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{payTypeArray[payTypeIndex].comname !== ''}}">
+                {{payTypeArray[payTypeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            缴费方式
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{repaidTypeIndex}}" range-key="comname" range="{{repaidTypeArray}}" data-type="repaidType">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{repaidTypeArray[repaidTypeIndex].comname !== ''}}">
+                {{repaidTypeArray[repaidTypeIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            贷款用途
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{loanUsageIndex}}" range-key="comname" range="{{loanUsageArray}}" data-type="loanUsage">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{loanUsageArray[loanUsageIndex].comname !== ''}}">
+                {{loanUsageArray[loanUsageIndex].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
     </view>
   </view>
-  <view class="card-style">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          还款方式
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          缴费方式
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          贷款用途
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !== ''}}">
-              {{productTypeArray[productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
-          </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
+  <view class="bottomText">
+    本次贷款争议处理方式为诉讼
   </view>
-</view>
-<view class="bottomText">
-  本次贷款争议处理方式为诉讼
-</view>
+</scroll-view>
 <view class="buttonView">
   <button class="buttonStyle" bindtap="nextStep">下一步</button>
 </view>

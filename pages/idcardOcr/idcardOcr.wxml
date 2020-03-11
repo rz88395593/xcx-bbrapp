@@ -113,7 +113,7 @@
     </view>
     <view class="weui-cell__bd">
       <view class="picker_value">
-        <input value="{{phone}}" bindinput="saveInput" data-type="phone" class="picker_value" placeholder="请输入姓名" confirm-type="next"></input>
+        <input value="{{phone}}" bindinput="saveInput" data-type="phone" class="picker_value" placeholder="请输入本人手机号码" confirm-type="next"></input>
       </view>
     </view>
   </view>

@@ -1,10 +1,10 @@
 /* pages/elementary/elementary.wxss */
 @import "../programme/programme.wxss";
 
-.buttonStyle {
+/* .buttonStyle {
   border-radius: 10rpx;
   margin-top: 40rpx;
-}
+} */
 
 .noneEnable {
   background-color: #f5f5f5;

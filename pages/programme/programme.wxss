@@ -1,9 +1,13 @@
 /* pages/programme/programme.wxss */
 
+.page {
+  height: calc(100% - 120rpx -128rpx);
+}
+
 .content-view {
   box-shadow: 0px 0rpx 10rpx #f5f5f5;
   background: #f5f5f5;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,9 +42,23 @@
   height: 30rpx;
 }
 
+.swiper-tab {
+  position: relative;
+  width: 100%;
+  /* height: 88rpx; */
+  display: flex;
+  box-sizing: border-box;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 88rpx;
+}
+
 .buttonStyle {
   border-radius: 10rpx;
-  margin-top: 0px;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .text-grey {

@@ -11,7 +11,7 @@ Page({
     gridsArray: [{
       title: '征信查询',
       userName: "",
-      targetUrl: '/pages/bindManager/bindManager',
+      targetUrl: '/pages/idcardOcr/idcardOcr',
       image: '/image/home_client.png',
       num: 0
     }, {

@@ -47,7 +47,102 @@ App({
     userCode: "",
     userName: "",
     userPhone: "",
-    mapApiKey: "4NSBZ-KZCCX-ESD46-ZRQY3-3335J-RIF6C",
+    mapApiKey: "DIZBZ-TX663-SVG3P-YP37W-72LNJ-KVF6Z",
+    /**
+         * 发卡银行
+         */
+    bankArray: [{
+      comcode: "农业银行",
+      comname: "农业银行"
+    }, {
+      comcode: "建设银行",
+      comname: "建设银行"
+    }, {
+      comcode: "交通银行",
+      comname: "交通银行"
+    }, {
+      comcode: "工商银行",
+      comname: "工商银行"
+    }, {
+      comcode: "中国银行",
+      comname: "中国银行"
+    }, {
+      comcode: "招商银行",
+      comname: "招商银行"
+    }, {
+      comcode: "邮储银行",
+      comname: "邮储银行"
+    }, {
+      comcode: "中信银行",
+      comname: "中信银行"
+    }, {
+      comcode: "光大银行",
+      comname: "光大银行"
+    }, {
+      comcode: "华夏银行",
+      comname: "华夏银行"
+    }, {
+      comcode: "民生银行",
+      comname: "民生银行"
+    }, {
+      comcode: "浦发银行",
+      comname: "浦发银行"
+    }, {
+      comcode: "兴业银行",
+      comname: "兴业银行"
+    }, {
+      comcode: "广发银行",
+      comname: "广发银行"
+    }, {
+      comcode: "河北银行",
+      comname: "河北银行"
+    }, {
+      comcode: "宁波银行",
+      comname: "宁波银行"
+    }, {
+      comcode: "北京银行",
+      comname: "北京银行"
+    }],
+
+    cardtypeArray: [{
+      comcode: "1",
+      comname: "个人卡"
+    }, {
+      comcode: "2",
+      comname: "对公卡"
+    }],
+    DataFormat: {
+      IMAGE_GIF: "image/gif",
+      IMAGE_JPEG: "image/jpeg",
+      IMAGE_PNG: "image/png",
+      MEDIA_AU: "media/au",
+      MEDIA_AIFF: "media/aiff",
+      MEDIA_WAVE: "media/wave",
+      MEDIA_MIDI: "media/midi",
+      MEDIA_MP4: "media/mp4",
+      MEDIA_M4V: "media/m4v",
+      MEDIA_3G2: "media/3g2",
+      MEDIA_3GP2: "media/3gp2",
+      MEDIA_3GP: "media/3gp",
+      MEDIA_3GPP: "media/3gpp"
+    },
+    TemplateType: {
+      XML: 10,
+      HTML: 11,
+      PDF: 12,
+      JSON: 13,
+      PRESERVED: 19
+    },
+    BioType: {
+      /** 签名人居民身份证正面 **/
+      PHOTO_SIGNER_IDENTITY_CARD_FRONT: 0,
+      /** 签名人居民身份证背面 **/
+      PHOTO_SIGNER_IDENTITY_CARD_BACK: 1,
+      /** 签名人复述录音 **/
+      SOUND_SIGNER_RETELL: 2,
+      /** 签名人自定义录音 **/
+      SOUND_SIGNER_OTHER: 3
+    },
   },
 
   /**

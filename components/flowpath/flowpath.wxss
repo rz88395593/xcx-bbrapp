@@ -1,0 +1,63 @@
+/* components/flowpath/flowpath.wxss */
+
+.content-view {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  height: 120rpx;
+}
+
+.flow_path_name {
+  padding-top: 60rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+  width: 20%;
+  text-align: center;
+}
+
+.flow_path_name_select {
+  color: red;
+}
+
+.flow_path_name_noneselect {
+  color: gray;
+}
+
+.circular {
+  height: 18rpx;
+  width: 18rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 30rpx;
+  left: calc((100% - 20rpx) /2);
+}
+
+.circular_select {
+  background-color: red;
+  border: 2rpx solid red;
+}
+
+.circular_noneselect {
+  border: 2rpx solid lightgray;
+}
+
+.line {
+  border-radius: 10rpx;
+  position: absolute;
+  top: 36.5rpx;
+  left: calc((100% + 20rpx) /2);
+  height: 5rpx;
+  width: calc(100% - 20rpx);
+  background-color: lightgray;
+}
+
+.line_select {
+  background-color: red;
+}
+
+.line_noneselect {
+  background-color: lightgray;
+}

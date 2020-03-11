@@ -64,7 +64,7 @@ page {
   background-color: #fff;
   display: inline-block;
   /* border-radius: 20rpx; */
-  margin-bottom: 30rpx;
+  margin-bottom: 20px;
 }
 
 .removeStyle {
@@ -85,11 +85,11 @@ page {
 
 .otherStyle {
   position: relative;
-  width: calc((100% - 120rpx) / 3);
+  width: calc((100% - 80px) / 3);
   float: left;
   display: block;
-  margin-left: 30rpx;
-  margin-top: 30rpx;
+  margin-left: 20px;
+  margin-top: 20px;
   /* margin-bottom: 30rpx; */
 }
 

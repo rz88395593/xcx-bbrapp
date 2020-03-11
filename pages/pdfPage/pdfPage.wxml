@@ -1,5 +1,32 @@
 <!--pages/pdfPage/pdfPage.wxml-->
-<text>pages/pdfPage/pdfPage.wxml</text>
- <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">签名</button>
+<view id="dialog" class="dialog_hide{{showView ? 'dialog_show' : ''}}">
+
+    <text style='font-size:12pt' id="anysign_title">{{text}}</text>
+    <view id="canvas_container" class="canvas_container">
+      <canvas canvas-id="anysignCanvas" style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;border:{{canvasColor?'black':'red'}} 1px solid" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd"
+        binderror="canvasIdErrorCallback"></canvas>
+    </view>
+
+    <loading hidden="{{hidden}}">
+      加载图片数据中，请稍候...
+    </loading>
+
+    <view id='single_scrollbar' class='btnScollInner'>
+      <text class='bjcatext'>滑动操作：</text>
+      <button class='scollbutton orange' bindtap='scrollbar_left'>左移</button>
+      <button class='scollbutton orange' bindtap='scrollbar_right'>右移</button>
+    </view>
+
+
+    <view id="btnContainerOuter">
+      <view id="btnContainerInner" class="btnContainerInner">
+        <button class="button orange" id="btnOK" bindtap="sign_confirm">确定</button>
+        <button class="button orange" id="btnClear" bindtap="clear_canvas">清屏</button>
+        <button class="button orange" id="btnCancel" bindtap="cancel_sign">取消</button>
+      </view>
+    </view>
+  </view>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="testPopupDialog" hover-class="button-hover-other">签名</button>
+  <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>
 <web-view wx:if="{{!ios}}" src="{{url}}"></web-view>
 

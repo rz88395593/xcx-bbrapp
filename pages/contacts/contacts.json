@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "flowpath": "/components/flowpath/flowpath"
+  },
   "navigationBarTitleText": "贷款申请"
 }

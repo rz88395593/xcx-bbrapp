@@ -1,5 +1,20 @@
 <!--pages/bindManager/bindManager.wxml-->
 <view class="content-view">
+  <view style="margin-left:20rpx;padding:20rpx">
+    <view>
+      当前所在城市
+      <span> {{multiArray[1][multiIndex[1]]}} </span>
+      <picker style='display:inline-block;font-size:33rpx;letter-spacing:2rpx;text-overflow: ellipsis;white-space: nowrap;}' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker" style="color:blue">
+          [切换]：
+        </view>
+      </picker>
+    </view>
+    <view>
+     <searchBox id="SearchBox" addflag="{{addflag}}" addimg="{{addimg}}" bind:addhandle="addhandle" searchstr="{{searchstr}}" bind:searchList="searchList" bind:endsearchList="endsearchList" bind:cancelsearch="cancelsearch" bind:activity_clear="activity_clear">
+    </searchBox>
+    </view>
+  </view>
 
   <view>
 
@@ -11,9 +26,9 @@
       </view>
       <view wx:for="{{managerList}}" class='view-content' wx:key wx:for-index='parentIndex'>
         <view class='view-card' bindtap="nextStep">
-          <text class='item-text'> 展业岗姓名：{{item.name}}</text>
-          <text class='item-text'> 展业岗身份证：{{item.name}}</text>
-          <text class='item-text'> 展业岗所属机构：{{item.name}}</text>
+          <text class='item-text'> 展业岗姓名：张三{{item.name}}</text>
+          <text class='item-text'> 展业岗身份证：111101********0055{{item.name}}</text>
+          <text class='item-text'> 展业岗所属机构：北京市某某机构{{item.name}}</text>
         </view>
       </view>
 
@@ -30,7 +45,7 @@
   </view>
 
 </view>
-<view bindtap="resetManager" class="round-click">
-   <text>重新录入</text >
+<view wx:if="{{showCountAll>1}}" bindtap="resetManager" class="round-click">
+  <text>重新录入</text >
 </view>
 <inputManagerModal isShow="{{inputIsShow}}" title='绑定展业岗' modalMsg_placeholder='请输入展业岗姓名' bindSuccess='onSuccess'></inputManagerModal>

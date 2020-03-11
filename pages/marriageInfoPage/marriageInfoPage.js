@@ -211,6 +211,12 @@ Page({
       }
     });
   },
+  bindManager:function(){
+    let json = ""
+    wx.navigateTo({
+      url: '/pages/bindManager/bindManager' + '?jsonData=' + json,
+    })
+  },
   bindNextStep() {
     let that = this
     // if (that.data.spouseName == "") {

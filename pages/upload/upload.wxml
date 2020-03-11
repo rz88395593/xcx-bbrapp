@@ -1,19 +1,21 @@
 <!--pages/upload/upload.wxml-->
 <view class="content-view">
   <view class="viewStyle">
-    <view>
-      <block wx:for="{{imageArray}}" wx:key="this">
-        <view class="otherStyle" style="width:{{imageWidth}}px;height:{{imageWidth}}px">
-          <image class="imageStyle" data-index="{{index}}" bindtap="previewImage" src="{{item.path}}" mode=""></image>
-          <image src="/image/result_finish.png" class="uploadStatus" wx:if='{{item.isUpload == true}}'></image>
-          <image src="/image/schedule_no.png" data-index="{{index}}" class="removeStyle" bindtap="removeImage" wx:if='{{item.isUpload == false}}'></image>
-        </view>
-      </block>
+    <!-- <view> -->
+    <block wx:for="{{imageArray}}" wx:key="this">
+      <!-- style="width:{{imageWidth}}px;height:{{imageWidth}}px" -->
       <view class="otherStyle" style="width:{{imageWidth}}px;height:{{imageWidth}}px">
-        <image src="../../image/addImage.png" data-index="{{index}}" class="imageStyle" bindtap="chooseImage"></image>
+        <image class="imageStyle" data-index="{{index}}" bindtap="previewImage" src="{{item.path}}" mode=""></image>
+        <image src="/image/result_finish.png" class="uploadStatus" wx:if='{{item.isUpload == true}}'></image>
+        <image src="/image/schedule_no.png" data-index="{{index}}" class="removeStyle" bindtap="removeImage" wx:if='{{item.isUpload == false}}'></image>
       </view>
+    </block>
+    <!-- style="width:{{imageWidth}}px;height:{{imageWidth}}px" -->
+    <view class="otherStyle" style="width:{{imageWidth}}px;height:{{imageWidth}}px">
+      <image src="../../image/addImage.png" data-index="{{index}}" class="imageStyle" bindtap="chooseImage"></image>
     </view>
   </view>
+  <!-- </view> -->
 </view>
 <view class="buttonView">
   <button class="buttonStyle" bindtap="goBack">确定</button>

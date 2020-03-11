@@ -1,84 +1,87 @@
 <!--pages/contacts/contacts.wxml-->
-<view class="content-view">
-  <!-- 联系人 -->
-  <view class="card-style" wx:for="{{contactsList}}" wx:for-index='index' wx:key="item">
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width-new textAddBlack">
-          联系人{{index + 1}}
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class="weui-input picker-view">
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          与申请人关系
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{item.productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[item.productTypeIndex].comname !=='' }}">
-              {{productTypeArray[item.productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+<flowpath selectIndex="4"></flowpath>
+<scroll-view scroll-y="true" style="height:{{viewHeight}}px">
+  <view class="content-view">
+    <!-- 联系人 -->
+    <view class="card-style" wx:for="{{contactsList}}" wx:for-index='index' wx:key="this">
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width-new textAddBlack">
+            联系人{{index + 1}}
           </view>
-        </picker>
-      </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          姓名
         </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class=" weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label">
-          联系电话
-        </view>
-      </view>
-      <view class="weui-cell__bd weui-label">
-        <view class="picker_value weui-label">
-          <input value="{{uploadCard}}" bindinput="saveInput" data-type="card" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="isBankCarInput" bindconfirm="isBankCarInput"></input>
-        </view>
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input weui-cell-height">
-      <view class="weui-cell__hd">
-        <view class="weui-label weui-label-width">
-          贷款是否知情
-        </view>
-      </view>
-      <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{item.productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
-          <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[item.productTypeIndex].comname !=='' }}">
-              {{productTypeArray[item.productTypeIndex].comname}}
-            </view>
-            <view class="noneSelect" wx:else>
-              请选择
-            </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input picker-view">
           </view>
-        </picker>
+        </view>
       </view>
-      <image src="/image/arrow_right.png" class="pickerImage"></image>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            与申请人关系
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{item.linerela}}" range-key="comname" range="{{linerelaArray}}" data-type="linerela" data-index="{{index}}">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{linerelaArray[item.linerela].comname !=='' }}">
+                {{linerelaArray[item.linerela].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            姓名
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{linkname}}" bindinput="bindDataInput" data-type="linkname" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput" data-index="{{index}}"></input>
+          </view>
+        </view>
+      </view>
+      <view class=" weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            联系电话
+          </view>
+        </view>
+        <view class="weui-cell__bd weui-label">
+          <view class="picker_value weui-label">
+            <input value="{{phoneNumber}}" bindinput="bindDataInput" data-type="phoneNumber" class="picker_value" placeholder="请输入" confirm-type="next" bindblur="bindDataInput" bindconfirm="bindDataInput" data-index="{{index}}"></input>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell-height">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-width">
+            贷款是否知情
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{item.currency1}}" range-key="comname" range="{{currency1Array}}" data-type="currency1" data-index="{{index}}">
+            <view class="pickerView picker" indicator-class="pickerCustom">
+              <view wx:if="{{currency1Array[item.currency1].comname !=='' }}">
+                {{currency1Array[item.currency1].comname}}
+              </view>
+              <view class="noneSelect" wx:else>
+                请选择
+              </view>
+            </view>
+          </picker>
+        </view>
+        <image src="/image/arrow_right.png" class="pickerImage"></image>
+      </view>
     </view>
   </view>
-</view>
+</scroll-view>
 <view class="buttonView">
   <button class="buttonStyle" bindtap="nextStep">下一步</button>
 </view>

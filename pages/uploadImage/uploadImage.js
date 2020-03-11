@@ -7,10 +7,6 @@ Page({
   data: {
     imageArray: [{
       number: 0,
-      title: "保单证明",
-      image: "/image/addImage.png"
-    }, {
-      number: 0,
       title: "身份证明",
       image: "/image/addImage.png"
     }, {
@@ -19,15 +15,36 @@ Page({
       image: "/image/addImage.png"
     }, {
       number: 0,
+      title: "银行流水",
+      image: "/image/addImage.png"
+    }, {
+      number: 0,
+      title: "工作证明",
+      image: "/image/addImage.png"
+    }, {
+      number: 0,
+      title: "投保单",
+      image: "/image/addImage.png"
+    }, {
+      number: 0,
       title: "个人征信查询授权委托书",
+      image: "/image/addImage.png"
+    }, {
+      number: 0,
+      title: "资金用途说明书",
       image: "/image/addImage.png"
     }, {
       number: 0,
       title: "小微金融风险信息共享平台查询授权书",
       image: "/image/addImage.png"
+    }, {
+      number: 0,
+      title: "其他",
+      image: "/image/addImage.png"
     }],
     rootHeight: 0,
-    imageWidth: 0
+    imageWidth: 0,
+    viewHeight: 0,
   },
 
   /**
@@ -67,7 +84,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let that = this
+    that.setData({
+      viewHeight: wx.getSystemInfoSync().windowHeight - (wx.getSystemInfoSync().windowWidth / 750 * (60 * 2 + 64 * 2)),
+    })
   },
 
   /**

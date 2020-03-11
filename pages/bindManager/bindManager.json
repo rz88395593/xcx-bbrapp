@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "inputManagerModal": "/components/inputSingleInfo/inputSingleInfo"
+    "inputManagerModal": "/components/inputSingleInfo/inputSingleInfo",
+    "searchBox": "../../components/searchBox/searchBox"
   }
 }

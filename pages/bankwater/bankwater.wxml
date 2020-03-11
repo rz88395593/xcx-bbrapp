@@ -8,10 +8,10 @@
         </view>
       </view>
       <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+        <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{bankaccountIndex}}" range-key="comname" range="{{bankaccountArray}}" data-type="bankaccount">
           <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
+            <view wx:if="{{bankaccountArray[bankaccountIndex].comname !=='' }}">
+              {{bankaccountArray[bankaccountIndex].comname}}
             </view>
             <view class="noneSelect" wx:else>
               请选择
@@ -28,10 +28,10 @@
         </view>
       </view>
       <view class="weui-cell__bd">
-        <picker class="weui-input picker-view" bindchange="bindProductTypePickerChange" value="{{productTypeIndex}}" range-key="comname" range="{{productTypeArray}}">
+        <picker class="weui-input picker-view" bindchange="bindPickerChange" value="{{cardtypeIndex}}" range-key="comname" range="{{cardtypeArray}}" data-type="cardtype">
           <view class="pickerView picker" indicator-class="pickerCustom">
-            <view wx:if="{{productTypeArray[productTypeIndex].comname !=='' }}">
-              {{productTypeArray[productTypeIndex].comname}}
+            <view wx:if="{{cardtypeArray[cardtypeIndex].comname !=='' }}">
+              {{cardtypeArray[cardtypeIndex].comname}}
             </view>
             <view class="noneSelect" wx:else>
               请选择
