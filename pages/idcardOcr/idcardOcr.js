@@ -1,4 +1,5 @@
 // pages/idcardOcr/idcardOcr.js
+const app = getApp();
 Page({
 
   /**
@@ -11,7 +12,13 @@ Page({
     cardCom: "",
     cardDate: "",
     submitJson:[],
-    personPhone:""
+    personPhone:"",
+
+    //验证码 设置初始的状态、包含字体、颜色、还有等待事件 
+    sendTime: '获取验证码',
+    sendColor: '#363636',
+    snsMsgWait: 60,
+
   },
 
   /**
@@ -33,6 +40,61 @@ Page({
    */
   onShow: function () {
 
+  },
+  // 获取验证码
+  sendCode: function () {
+    let that = this
+    let personPhone = that.data.personPhone
+    // if (app.stringFormat(personPhone) === "") {
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "请输入手机号码",
+    //     showCancel: false,
+    //     success(res) {
+    //       if (res.confirm) {
+
+    //       }
+    //     }
+    //   })
+    //   return
+    // }
+    // if (!util.isPoneAvailable(that.data.personPhone)) {
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "请确认手机号码是否正确",
+    //     showCancel: false,
+    //     success(res) {
+    //       if (res.confirm) { }
+    //     }
+    //   })
+    //   return
+    // }
+    that.sendButtonChange()
+    that.sendMessage()
+  },
+  /**
+ * 60秒后重新获取验证码
+ */
+  sendButtonChange: function () {
+    let that = this
+    var inter = setInterval(function () {
+      that.setData({
+
+        smsFlag: true,
+        sendColor: '#cccccc',
+        sendTime: that.data.snsMsgWait + 's后重发',
+        snsMsgWait: that.data.snsMsgWait - 1
+      });
+      if (that.data.snsMsgWait < 0) {
+        clearInterval(inter)
+        that.setData({
+          sendColor: '#363636',
+          sendTime: '获取验证码',
+          snsMsgWait: 60,
+          smsFlag: false
+        });
+      }
+    }.bind(this), 1000);
   },
   //输入框输入时赋值
   saveInput: function (e) {
@@ -120,6 +182,99 @@ Page({
         console.log('相册选择错误：' + error.data)
       }
     })
+  },
+  /**
+ * 发送短信
+ */
+  sendMessage: function () {
+    let that = this
+    let personPhone = that.data.personPhone
+    let url = app.globalData.baseUrl 
+    wx.showLoading({
+      icon: "loading",
+      title: "加载中...",
+      mask: true
+    })
+    wx.request({
+      url: url,
+      method: "POST",
+      success: (res) => {
+        wx.hideLoading()
+        console.log("发送验证码成功")
+        console.log(res)
+        let data = res.data
+        let code = ""
+        let result = "抱歉！发送验证码失败，请稍后重试"
+        if (data !== undefined && data !== "") {
+          if (data.message === undefined && data.message === null) { } else {
+            let info = data.result
+          }
+        } else {
+          if (res.statusCode == 200) { }
+        }
+        if (code === '200') {
+          wx.showToast({
+            title: '发送验证码成功',
+            icon: 'none',
+            duration: 2000
+          })
+          that.sendButtonChange()
+        } else {
+          wx.hideLoading()
+          wx.showModal({
+            title: "提示",
+            content: result,
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        }
+      },
+      fail: (err) => {
+        wx.hideLoading()
+        console.log("发送短信失败")
+        console.log(err)
+        let errMsg = err.errMsg
+        if (errMsg !== undefined && errMsg !== null) {
+          console.log(errMsg)
+          if (errMsg === "request:fail timeout") {
+            errMsg = "抱歉！请求超时，请稍后重试"
+          } else { //if (errMsg === "request:fail ")
+            errMsg = "网络请求失败，请检查您的网络设置"
+          }
+          wx.showModal({
+            title: "提示",
+            content: errMsg,
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        } else {
+          wx.showModal({
+            title: "提示",
+            content: "网络请求失败，请检查您的网络设置",
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        }
+      }
+    });
   },
   bindNextStep(){
     let that = this

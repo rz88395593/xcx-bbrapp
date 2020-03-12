@@ -36,6 +36,13 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    //扫码进入
+    if (options.scene) {
+      let scene = decodeURIComponent(options.scene);
+      //&是我们定义的参数链接方式
+      let userId = scene.split("&")[0];
+      let recommendId = scene.split('&')[1];
+    }
     that.wxLogin("")
   },
 

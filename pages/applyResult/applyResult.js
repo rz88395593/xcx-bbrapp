@@ -32,8 +32,8 @@ Page({
 
   bindNextStep: function () {
     let json = ""
-    wx.navigateTo({
-      url: '/pages/programme/programme' + '?jsonData=' + json,
-    })
+    // wx.navigateTo({
+      // url: '/pages/programme/programme' + '?jsonData=' + json,
+    // })
   }
 })

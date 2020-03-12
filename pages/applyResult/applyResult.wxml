@@ -6,4 +6,4 @@
   <text class="text-grey" style="margin-bottom:50rpx" >{{promotDetailMsg}}</text>
 </view>
 
- <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">进入贷款申请</button>
+ <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">进入其它页面</button>

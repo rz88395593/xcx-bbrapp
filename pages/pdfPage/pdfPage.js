@@ -15,7 +15,7 @@ Page({
 
     text: "请投保人XX签字",
     // result:"",
-    showView: false,
+    showView: true,
     hidden: true,
     viewLeft: 0,
     canvasWidth: 800,
@@ -153,10 +153,10 @@ Page({
      */
     var res = anysignWXInterface.setTemplate(app.globalData.TemplateType.HTML, formData, businessId, template_serial);
     if (res) {
-      wx.showModal({
-        title: '提示',
-        content: '设置表单数据成功！'
-      })
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '设置表单数据成功！'
+      // })
     } else {
       wx.showModal({
         title: '提示',
@@ -256,7 +256,7 @@ function testAddSignatureObj1(objId) {
   signatureConfig.timeTag = timeTag;
   signatureConfig.singleWidth = 400;
   signatureConfig.singleHeight = 400;
-  signatureConfig.penColor = "#FF0000";
+  signatureConfig.penColor = "#000000";
   signatureConfig.isTSS = false; //是否开始时间戳服务
   signatureConfig.nessesary = false;
   var res = anysignWXInterface.addSignatureObj(context_id, signatureConfig);

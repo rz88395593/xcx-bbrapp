@@ -101,7 +101,7 @@
 
   </view>
 
-<view class="prompt-view">
+  <view class="prompt-view">
     请录入以下信息
   </view>
   <view class=" weui-cell weui-cell_input weui-cell-height">
@@ -117,6 +117,20 @@
       </view>
     </view>
   </view>
+   <view class=" weui-cell weui-cell_input weui-cell-height">
+      <view class="weui-cell__hd">
+        <view class="weui-label">
+          验证码
+          <text class='red-star'>*</text>
+        </view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="picker_value">
+          <input value="{{uploadCode}}" bindinput="saveInput" data-type="code" class="picker_value" placeholder="请输入验证码" confirm-type="next"></input>
+        </view>
+      </view>
+      <button bindtap="sendCode" disabled="{{smsFlag}}" style="color:{{sendColor}};font-size:24rpx;">{{sendTime}}</button>
+    </view>
 </view>
 
 

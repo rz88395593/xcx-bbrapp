@@ -26,7 +26,7 @@
       </view>
     </view>
   </view>
- <button class="buttonStyle" loading="{{loading}}" bindtap="testPopupDialog" hover-class="button-hover-other">签名</button>
+ <button class="buttonStyle" loading="{{loading}}" data-channel="21" id="21"  bindtap="testPopupDialog" hover-class="button-hover-other">签名</button>
   <button class="buttonStyle" loading="{{loading}}" bindtap="bindNextStep" hover-class="button-hover-other">下一步</button>
 <web-view wx:if="{{!ios}}" src="{{url}}"></web-view>
 
